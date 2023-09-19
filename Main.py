@@ -602,7 +602,6 @@ def startGame():
           f'Intellect - {Character.getIntellect()}\n'
           f'Charisma - {Character.getCharisma()}\n')
     print(f"Now awaken {Character.getName()}, your destiny awaits you.")
-    questFinalMoments()
     global strengthMod
     global intellectMod
     global charismaMod
