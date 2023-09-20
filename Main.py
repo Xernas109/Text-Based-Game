@@ -413,7 +413,11 @@ def startGame():
                 choice = False
         else:
             print("Do not attempt to deviate from your path.")
-
+    global Frost_Bolt
+    global College_Robes
+    global Grand_Order_Robes
+    global Fireball
+    global Nature_Bolt
     choice = True
     while choice:
         print("Chose your characters path, Mage or Warrior.")
@@ -454,11 +458,6 @@ def startGame():
             heroInventory.append(Iron_Armor)
 
         else:
-            global Frost_Bolt
-            global College_Robes
-            global Grand_Order_Robes
-            global Fireball
-            global Nature_Bolt
             if heroName == "Endol Nolvit":
                 Iron_Sword = Weapon("Iron Sword", "melee", 3, True, [])
                 Shadow_Bolt = Weapon("Shadow Bolt", "ranged", 3, True, [])
@@ -1220,7 +1219,7 @@ def questAttendClass():
     print("\n\"Now if you would, take this tome, read its instructions, and cast the spell.\"")
     if Character.getRace() == "man":
         global Layered_Ice
-        Layered_Ice = Weapon("Layered_Ice", "ranged", 0, False,  "Armor")
+        Layered_Ice = Weapon("Layered Ice", "ranged", 0, False,  "Armor")
         print("\nLayered Ice was added to your inventory.\n")
         Character.inventory.append(Layered_Ice)
         print("\"This spell casts upon the user, so you will be the target.\"")
@@ -1585,7 +1584,7 @@ def questNecramil():
             answer = input("> ").lower()
             checkAllCommands(answer)
             if answer == "find the healer":
-                if Character.getArmor() == Grand_Order_Robes or Character.getArmor() == Improved_Grand_Order_Robes:
+                if Character.getArmor().getName() == "Grand Order Robes" or Character.getArmor().getName() == "Improved Grand Order Robes":
                     visitHealer = True
                     print("As you approach the healer they immediatly see your wounds and begin to heal you.")
                     Character.setHealth(Character.getMaxHealth())
@@ -1593,7 +1592,7 @@ def questNecramil():
                     print("Before you leave the healer tells you \"If you see that scoundril necramil tell me to give my dagger back!\"")
                     choice1 = True
                     while choice1 == True:
-                        print("Offer the Dagger | Leave")
+                        print("| Offer the Dagger | Leave |")
                         answer = input("> ").lower()
                         checkAllCommands(answer)
                         if answer == "offer the dagger":
@@ -2035,7 +2034,7 @@ def questMageSirusCombat(x):
                 choice2 = True
                 while choice2 == True:
                     print("| Sneak Attack |")
-                    answer = input("> ")
+                    answer = input("> ").lower()
                     checkAllCommands(answer)
                     if answer == "sneak attack":
                         choice2 = False
@@ -2263,7 +2262,7 @@ def questFinalMoments():
     while finalChoice == True:
         chance += 1
         answer = input("> ").lower()
-        if answer == "through ax'altour i bansish thee, sirus of the inar, never return to terradestril." or "through ax'altour i bansish thee sirus of the inar never return to terradestril" or "through ax'altour i bansish thee, sirus of the inar never return to terradestril." or "through ax'altour i bansish thee sirus of the inar, never return to terradestril.":
+        if answer == "through ax'altour i bansish thee, sirus of the inar, never return to terradestril.":
             print("\n\"THROUGH AX'ALTOUR I BANISH THEE, SIRUS OF THE INAR, NEVER RETURN TO TERRADESTRIL.\"\n")
             print("It was finished, with a terrible shriek heard all across Terradestril Sirus of the Inar was sent back to the abyssal realm.")
             print("The College of Arcanum alog with its Archmage was saved, and the rift between mages and warriors was broken all thanks to your work.")
